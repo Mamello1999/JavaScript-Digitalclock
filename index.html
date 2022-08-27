@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JS Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="DisplayTime" class="clock">
+
+    </div>
+    <script type="text/javascript">
+      function showtime(){
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        var session;
+        if(h>12){
+          session = "PM";
+        }
+        else{
+          session = "AM";
+        }
+        if(m<10){
+          m= "0"+m;
+        }
+        if(s<10){
+          s="0"+s;
+        }
+        var time = h+":"+m+":"+s +":"+ session;
+        document.getElementById("DisplayTime").innerText = time;
+        document.getElementById("DisplayTime").textContent = time;
+        setTimeout(showtime,1000);
+      }
+      showtime();
+    </script>
+  </body>
+</html>
